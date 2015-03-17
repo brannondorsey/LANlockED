@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Images layouts with freewall</title>
+		<meta content="text/html; charset=utf-8" http-equiv="content-type">
+		<meta name="description" content="Freewall demo for image layout" />
+		<meta name="keywords" content="javascript, dynamic, grid, layout, jquery plugin, images layouts"/>
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="freewall-master/example/css/style.css" />
+		<script type="text/javascript" src="freewall-master/example/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="freewall-master/freewall.js"></script>
+		<style type="text/css">
+			
+			@font-face {
+			    font-family: myFont;
+			    src: url(media/fonts/LeagueGothic-Regular.otf) format('truetype');
+			}
+
+			html, body{
+				height: 100%;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				background-color: rgb(255, 255, 255);
+				color: #000;
+				text-shadow: none;
+				font-size: 1em;
+				font-family: myFont;
+			}
+
+			.layout {
+				position: absolute;
+				right: 0px;
+				left: 0px;
+				top: 0px;
+				bottom: 0px;
+				padding: 15px;
+				overflow-x: auto;
+				overflow-y: hidden;
+			}
+
+			.cell {
+				display: block;
+				background-color: rgb(255, 255, 255);
+				/*height: 100px;*/
+			}
+
+			.free-wall {
+				margin: auto;
+				width: 80%;
+				height: 100%;
+				position: fixed;
+			}
+
+			.image {
+				display: none;
+			}
+
+			#message-box {
+				position: absolute;
+				top: 5em;
+				z-index: 2;
+				padding: 1.2em;
+				background-color: rgba(255, 255, 255, 0.9);
+				font-size: 1em;
+				line-height: 1em;
+				text-align: center;
+				margin: auto;
+				font-family: myFont;
+				
+			}
+
+			#message-box h1 {
+				font-family: myFont;
+				font-size: 10em;
+				line-height: 1em;
+			}
+
+			#message-box p{
+				font-size: 2em;
+			}
+
+			a, a:hover, a:visited{
+				color: #000;
+			}
+
+		</style>
+	</head>
+	<body>
+		<a href="tutorial.html">
+		<div class="layout">
+			<div id="message-box">
+				<h1>You've been LANlockED!</h1>
+				<p>Click anywhere to learn more.</p>
+			</div>
+			<div id="freewall" class="free-wall">
+				<span id='freewall-child'></span>
+				<img class='image' src='media/congratulations_images/image_1.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_1.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_2.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_2.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_3.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_3.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_4.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_4.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_5.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_5.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_6.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_6.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_7.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_7.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_8.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_8.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_9.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_9.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_10.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_10.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_11.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_11.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_12.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_12.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_13.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_13.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_14.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_14.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_15.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_15.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_16.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_16.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_17.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_17.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_18.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_18.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_19.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_19.gif'); width: 200px"></div>
+
+				<img class='image' src='media/congratulations_images/image_20.gif'>
+				<div class='cell' style="background-image: url('media/congratulations_images/image_20.gif'); width: 200px"></div>
+
+			</div> <!-- #freewall -->
+
+			<script type="text/javascript">
+
+			$(document).ready(function(){
+
+				$(window).on('resize', function(){
+					console.log('window resize');
+					$('#message-box').css({
+						width: $(window).width() * 0.60,
+						left: $(window).width() * 0.20
+					});
+				});
+
+				// this is not working for some reason
+				// for (var i = 1; i <= 20; i++) {
+				// 	var img = $("<img class='image' src='media/congratulations_images/image_" + i + ".gif'>");
+				// 	var div = $("<div class='cell' style='background-image: url('media/congratulations_images/image_" + i + ".gif'); width: 200px'></div>");
+				// 	$('#freewall').append(img);
+				// 	$('#freewall').append(div);
+				// }
+
+				var w = 1, html = '';
+				var cells = $('.cell');
+				
+				
+				cells.each(function(i, elem){
+					
+					var image = $('.image').get(i);
+					
+					while (image.width == 0) {}; // delay you asshole
+					
+					var height = $(window).width()/5; // fixed height of 200
+					var width = (image.height * height) / image.width;
+					
+					$(this).css({
+						height: width,
+						width: height
+					});
+				});
+				
+				var wall = new freewall("#freewall");
+				wall.reset({
+					selector: '.cell',
+					animate: true,
+					// cellW: 200,
+					gutterX: 0,
+					gutterY: 0,
+					fixSize: false,
+					onResize: function() {
+						wall.fitHeight($(window).height());
+						wall.fitWidth($(window).width());
+					}
+				});
+
+				wall.fitWidth($(window).width());				
+
+				// for scroll bar appear;
+				$(window).trigger("resize");
+
+				var containerObj = $(".layout").first();
+				var contentObj = $("#freewall");
+
+				var containerWidth = containerObj.width();
+				var contentWidth = contentObj.outerWidth();
+
+				var contentLeft = 0;
+				var scrollLeft = 1;
+				var intervalCounter = 0;
+				var intervalID = undefined;
+
+				$(document).on('keypress', function(evt){
+					
+					var key = evt.keyCode || evt.which;
+					if (key == 32) {
+
+						if (intervalID !== undefined)
+							clearInterval(intervalID);
+
+						intervalID = setInterval(function() {
+
+						   // if (scrollLeft > contentWidth + containerWidth)
+						   //     scrollLeft = 0;
+						   
+						   scrollLeft += 2;
+						   containerObj.scrollLeft(scrollLeft);
+						   window.moveBy(scrollLeft, 0);     
+
+						   intervalCounter++;
+
+						}, 20);
+					}
+				});
+
+				
+			});
+
+			</script>
+			</a>
+		</body>
+</html>

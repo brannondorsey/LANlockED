@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>LANlockED Tutorial</title>
+		<meta content="text/html; charset=utf-8" http-equiv="content-type">
+		<link rel="stylesheet" href="css/github-markdown.css">
+<style>
+    .markdown-body {
+        min-width: 200px;
+        max-width: 790px;
+        margin: 0 auto;
+        padding: 30px;
+        font-size: 1em;
+    }
+</style>
+<article class="markdown-body">
+    <h1>LANlockED (Hidden) Workshop</h1>
+    <p><h3>Congratulations, you've found this hidden website. Welcome to My Internet.</h3></p>
+    <br>
+    <p><img src="media/images/LANlockED.png"></img></p>
+    <p>Well, it isn't really My Internet, but it is my own Captive Portal Access Point (huh?!) Let me back up...</p>
+    <p>
+    	Now that you have connected to my Local Area Network (LAN) you are being served this webpage from a small linux computer somewhere nearby.
+    </p>
+    <img src="media/images/raspberry_pi.jpg"></img>
+    <br>
+    <br>
+    <p>While you are connected to this LAN any URL you visit or link you follow will automatically redirect to whatever content is in the <code>www/</code> folder on that Raspberry Pi &#8593;, which in this case is the page you are viewing now. Throughout this tutorial/workshop I will be teaching you how to set up your own Captive Portal LAN, show you some example projects you could make with one, and discuss why creating a Battery Operated Mobile Captive Portal Wireless Access Point (BOMCPWAP) is an endevor rich for artistic exploration.</p>
+
+    <h2>What You Could Make And Why You Should Make It</h2>
+
+    <p>
+    Because BOMCPWAPs are mobile, rapidly deployable, and fairly expendable, they present a unique and powerful oppertunity for you to deliver your own web content to a group of people guaranteed to be nearby. They are great for:
+
+    	<ul>
+    		<li>Connecting people in areas where an Internet or 3G connection is not available.</li>
+    		<li>Augmenting an exhibition or gallery experience.</li>
+    		<li>Host an off-line Web Art exhibition in a real place (or a collection of them around a city).</li>
+    	</ul>
+	</p>
+	<p>
+	With a BOMCPWAP you could easily create:
+	<ul>
+    	<li>A networked game connecting riders of a public transportation service.</li>
+    	<li>A Skype-like application that automatically connects viewers who are already in the same place.</li>
+    	<li>A LAN style BBS featuring ASCII art packs.</li>
+    </ul>
+    </p>
+
+    <h3>Example</h3>
+
+    <p>In the United States, home wireless routers receiving cable from Comcast XFINITY (one of the largest providers in the nation) are automatically configured to produce two access points. The first is a small-scale normal wireless access point that you can encrypt, name, etc... However, the second is automatically created (often without the consumer's knowledge) with the name <code>xfinitywifi</code> specifically so that other XFINITY customers can piggy-back off of your wireless router if they loggin with their Comcast account credentials.</p>
+
+    <p>Because Comcast XFINITY is so ubiquitous in the US, and because most mobile devices and computer wifi settings are set to "automatically join known networks" by default, by simply naming your BOMCPWAP's SSID <code>xfinitywifi</code> you can bait people in to joining your LAN automatically.</p>
+
+    Here I have configured my BOMCPWAP to automatically display the default XFINITY login page for 5 seconds when someone connects to my network:
+    </p>
+    <p><img src="media/images/xfinitywifi.png"></p>
+    <p>
+    	That login page then redirects to a local copy of <a href="http://spam.com">http://spam.com</a> with 6 videos of Rick Astley's 1987 pop hit "Never Gonna Give You Up" spinning in a loop and concurrently playing at their own trecherously annoying offsets.
+    </p>
+    <p><img src="media/images/spam.png"></p>
+
+    <p>Follow the instructions below to setup your own BOMCPWAP in no time!</p>
+
+    <h2>Getting Started</h2>
+
+    <p>You'll need the following things to get up and running with your own BOMCPWAP:
+    	<ul>
+    		<li>Raspberry Pi (any model, including RPi 2)</li>
+    		<li>USB Wireless Network Card (I recommend the $15 TL-WN722N but most should work)</li>
+    		<li>USB Battery Pack capable of supplying 1 AMP to your Raspberry Pi (not required, but non-BOM CPWAPs are for squares)</li>
+    		<li>SD Card (or Micro SD card dependent on your Raspberry Pi model)</li>
+    		<li>Raspbian OS Distrobution (Downloadable from the Raspberry Pi website)</li>
+    		<li>A copy of the EmptyBox source code</li>
+    	</ul>
+    </p>
+
+    If you've never used a Raspberry Pi before or you are unconforatble with installing the Raspbian Operating System, there are plenty of tutorials for that on the web. If you want to install this now, log off this LAN and go find <a href="media/images/nyan_cat.gif">the real internet</a>, then come back when you're ready.
+
+    <h3>EmptyBox</h3>
+
+    <p>EmptyBox is the software package that allows you to set up your own BOMCPWAP in ~15 Minutes flat. It is my fork of the PirateBox project with modifications that relinquish it from its original purpose. EmptyBox is meant to:
+
+    <ul>
+    	<li>Promote experimentation using Wifi Access Points (APs) for the purpose of media art, performance, and/or play.</li>
+    	<li>Be rapidly deployable and well documented for artists or experimenters who wish to create artworks and experiences using Captive Portal Access Points who might otherwise find this feat challenging or be altogether unfamiliar with these technologies or concepts.</li>
+    </ul>
+
+    For more information about EmptyBox project visit: <a href="https://github.com/brannondorsey/emptybox">https://github.com/brannondorsey/emptybox</a>
+</article>
