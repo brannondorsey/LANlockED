@@ -245,6 +245,11 @@
 				<img class='image' src='media/congratulations_images/image_10.gif'>
 				<div class='cell' style="background-image: url('media/congratulations_images/image_19.gif'); width: 200px"></div>
 
+				<audio>
+				  <source src="media/congratulations.ogg" type="audio/ogg">
+				  <source src="media/congratulations.mp3" type="audio/mpeg">
+				</audio>
+
 			</div> 
 
 			<script type="text/javascript">
@@ -259,6 +264,10 @@
 				});
 
 				$(window).trigger("resize");
+
+				var audio = $('audio')[0];
+				audio.volume = 0.33;
+				audio.play();
 
 				// this is not working for some reason
 				// for (var i = 1; i <= 20; i++) {
