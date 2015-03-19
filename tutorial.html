@@ -76,7 +76,7 @@
     	</ul>
     </p>
 
-    If you've never used a Raspberry Pi before or you are unconforatble with installing the Raspbian Operating System, there are plenty of tutorials for that on the web. If you want to install this now, log off this LAN and go find <a href="media/images/nyan_cat.gif">the real internet</a>, then come back when you're ready.
+    If you've never used a Raspberry Pi before or you are unconforatble with installing the Raspbian Operating System, there are plenty of tutorials for that on the web. If you want to install this now, log off this LAN and go find <a href="media/images/nyan_cat.gif">the real internet</a>, then come back once you have installed Raspbian (or another Debian based linux distrobution) on your Raspberry Pi.
 
     <h3>EmptyBox</h3>
 
@@ -88,4 +88,68 @@
     </ul>
 
     For more information about EmptyBox project visit: <a href="https://github.com/brannondorsey/emptybox">https://github.com/brannondorsey/emptybox</a>
+
+    <h3>Install EmptyBox</h3>
+
+    <p>To install emptybox on you Raspberry Pi you must first download the source code. To do this your Raspberry Pi must be connected to the internet. The easiest way to get an internet connection on the Raspberry Pi is to use an ethernet cable. Once you have an internet connection, clone the EmptyBox repository from the Terminal with the following command:</p>
+
+    <pre>git clone https://github.com/brannondorsey/EmptyBox</pre>
+
+    <p>
+    Next you must install EmptyBox's dependencies and copy the <code>emptybox/</code> directory by running the install script:
+    </p>
+
+    <pre>cd EmptyBox<br>sudo ./install.sh</pre>
+
+    <p>
+    The install command will ask you if you would like to install the dependencies and addon dependencies. Type <code>y</code> (for yes) whenever prompted.
+    </p>
+
+    <p>
+    If EmptyBox was installed correctly you should see something like this when the process terminates:
+    </p>
+
+<pre>
+##############################
+#EmptyBox has been installed#
+##############################
+
+Use: sudo service emptybox &lt;start|stop&gt;
+or for systemd systems Use: sudo systemctl &lt;start|stop|restart&gt; emptybox
+To make EmptyBox start at boot run: update-rc.d emptybox defaults
+</pre>
+    <p>
+    EmptyBox uses a daemon to start/stop its processes. Its dependencies do to and often times their default daemons will get in the way of EmptyBox's. Run the following commands to disable the default daemons for <code>lighttpd</code>, <code>dnsmasq</code>, and <code>hostapd</code>:</p>
+    <pre>sudo /etc/init.d/lighttpd stop
+sudo update-rc.d lighttpd remove
+sudo /etc/init.d/dnsmasq  stop
+sudo update-rc.d dnsmasq remove 
+sudo /etc/init.d/hostapd  stop
+sudo update-rc.d hostapd remove </pre>
+    <p>
+    If you would like to have EmptyBox start on boot (highly recommended, that way you never have to plug in a monitor again) run this command:
+    </p>
+    <pre>sudo update-rc.d emptybox defaults</pre>
+    <p>Now whenever you power on your Raspberry Pi it should automatically broadcast its Access Point.</p>
+
+    <p>To start EmptyBox, run:</p>
+    <pre>sudo service start emptybox</pre>
+
+    <p>If EmptyBox was launched successfully you should see something like this:</p>
+    <p><img src="media/images/emptybox_start_output.png"></p>
+    <p>The EmptyBox network should now be presenting itself to nearby devices.</p>
+    <p><img src="media/images/emptybox_wifi.png"></p>
+    <p>Any device that connects to this network and makes a non-https request should be rerouted to receive the content inside of the Raspberry Pi's <code>/opt/emptybox/www</code> folder.</p>
+    <p><img src="media/images/cracked_iphone_emptybox.png" width="300"></p>
+
+    <h2>Configuring EmptyBox</h2>
+
+    <p>Once EmptyBox has been installed, you can easily manage the conent and configuration to suit your needs. The configuration files are located in <code>/opt/emptybox/conf/</code> and the content being served is located in <code>/opt/emptybox/www/</code>.</p>
+
+    <h3>Using Your Own <code>www</code> Content</h3>
 </article>
+
+
+
+
+
